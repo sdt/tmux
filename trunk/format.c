@@ -392,6 +392,8 @@ format_window_pane(struct format_tree *ft, struct window_pane *wp)
 	if (wp->cwd != NULL)
 		format_add(ft, "pane_start_path", "%s", wp->cwd);
 	format_add(ft, "pane_current_path", "%s", osdep_get_cwd(wp->pid));
+	format_add(ft, "pane_cursor_x", "%d", wp->screen->cx);
+	format_add(ft, "pane_cursor_y", "%d", wp->screen->cy);
 	format_add(ft, "pane_pid", "%ld", (long) wp->pid);
 	format_add(ft, "pane_tty", "%s", wp->tty);
 }
